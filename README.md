@@ -3,6 +3,16 @@
 
 # Capstone: Stormwater Flow Rate Model for the City of Missoula
 
+# Introduction
+
+The City of Missoula is located in the Northwestern corner of Montana. It's admiringly called the garden city, due to it's milder climate and the abundance of water in the valley. The Clarks Fork River and the Bitterroot River join the city in the valley, while 5 different mountain ranges surround the city from above. As a result of these favorable traits the city has seen a large increase in population, and to support this growth, development. As a result the cities infrastructure now has a larger burden.
+
+The focus of this project will be on the City of Missoula's sewer infrastructure. The city has a large array of sewer pipes that traverse the city towards treatment plants. These pipes are built in descending lines, to allow gravity to move the water towards these treatement plants. However, there are places in these sewer lines where its no longer economic to dig any deeper to continue the descending grade. Here is where the cities lift stations step in. Lift stations serve as an intermediary, lifting water up from the end of sewer pipes that can go no deeper to a fresh pipe much nearer the surface. The new pipe closer to the surface begins the descending grade again for gravity to step back in. 
+
+There are a multitude of lift stations throughout the valley but for this project I will focus on 20 stations that are outfitted with SCADA. SCADA is a data collection service that provides real time data from each lift station such as when the wet well's pumps turned on and off along with a timestamp for each event. Using this data I built a model to calculate the Flow Rate in Gallons Per Minute from each of these liftstations at any point in time. This flow rate can then be used for diurnal modeling and visualizations, which provides invaluable impact when assessing the cities sewer system limits. 
+
+In the links above you will find the model, the function, and a sample output. The model will show each step in this process individually from reading in the SCADA data, to calculating inflow, and finally finding the Average Flow Rate in GPM. The function combines all of these steps into an easy 5 step program that allows the user to convert raw SCADA data into a meaningful calculated excel sheet with just a few clicks. The sample data is a sample of the output from the function for a lift station.
+
 # Section 1
 
 In this section I read in our sewer SCADA data to a pandas dataframe and do some quick formatting. I'll begin by converting the dateandtime column to datetime format, removing unneeded columns, and dropping any NA values. Finally I will remove erronious 0's. This data contains 1's and 0's in the value column. 1's signal a pump turning on while a 0 signals a pump turning off. The relationship needs to be 1:1, however SCADA inputs erronious zero's into the output every 15 minutes, so I will remove them. Once this process is finished we are ready to begin section 2.
