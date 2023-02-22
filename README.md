@@ -1,3 +1,6 @@
+![image](https://user-images.githubusercontent.com/112598531/220494952-6db0285b-f24c-466f-a993-9343e56047a5.png)
+
+
 # Capstone: Stormwater Flow Rate Model for the City of Missoula
 
 # Section 1
