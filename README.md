@@ -35,20 +35,20 @@ Average observed pumping flow rate (GPM) - to calculate this value I simply add 
 
 # Section 4
 
-In this section I will calculate the time to fill, inflow, and average inflow. These values need to be accounted for when calculating flow rate, as even when the pumps are turned on within a wet well and the level is dropping, water is still flowing through the sewer pipes into the well.
+In this section, I will calculate the time to fill, inflow, and average inflow. These values need to be accounted for when calculating flow rate, as even when the pumps are turned on within a wet well and the level is dropping, water is still flowing through the sewer pipes into the well.
 
-Time to fill - To calculate time to fill for each row in calc_df I take the stop unix time of the first row within calc_df (when the pump turned off) and subtract this value from the start unix time off the next row (when the pump turned back on). The difference between the pump turning off and the next pump turning on is my time to fill measure.
+Time to fill - To calculate the time to fill for each row in calc_df, I take the stop Unix time of the first row within calc_df (when the pump turned off) and subtract this value from the start Unix time of the next row (when the pump turned back on). The difference between the pump turning off and the next pump turning on is my time to fill the measure.
 
-Inflow - To calculate my inflow value for each row in calc_df, I take the row's volume per foot value and multiply by the row's elevation difference value. I then divide that result by the row's time to fill value we just calculated.
+Inflow - To calculate my inflow value for each row in calc_df, I take the row's volume per foot value and multiply it by the row's elevation difference value. I then divide that result by the row's time to fill value we just calculated.
 
-Average Inflow - To calculate my average inflow for each row in calc_df, I simply add all the values for inflow in the row's I have iterated over and divide by the count of those rows. So if I have iterated over 4 rows so far in calc_df and the inflow values are (60,40,20,60) I sum these values (180) and divide by four to get my average inflow value in row 4, 45.
+Average Inflow - To calculate my average inflow for each row in calc_df, I simply add all the values for inflow in the rows I have iterated over and divide by the count of those rows. So if I have iterated over 4 rows so far in calc_df and the inflow values are (60,40,20,60) I sum these values (180) and divide by four to get my average inflow value in row 4, 45.
 
 # Section 5
 
-In this section I will calculate the actual pump flow rate in GPM, average flow rate per pump in GPM, and average pump flow rate in GPM.
+In this section, I will calculate the actual pump flow rate in GPM, the average flow rate per pump in GPM, and the average pump flow rate in GPM.
 
-Actual pump flow rate - To calculate actual pump flow rate for each row in calc_df, I simply take the row's observed pumping flow rate value we calculated earlier, and add the row's inflow value.
+Actual pump flow rate - To calculate the actual pump flow rate for each row in calc_df, I simply take the row's observed pumping flow rate value we calculated earlier, and add the row's inflow value.
 
-Average flow rate per pump - To calculate the average flow rate per pump I add the values in the actual pump flow rate column for each individual pump, and then divide that sum by the count of values for that pump. So if I iterate over 4 rows of the calc_df, and pump 1 has 3 out of the 4 rows with an actual pump flow rate of 100, 120, and 100, the formula will sum these three rows (320) and divide by the amount of rows that were related to pump 1 (3). The average flow rate per pump 1 in row 4 would be 106.
+Average flow rate per pump - To calculate the average flow rate per pump I add the values in the actual pump flow rate column for each pump, and then divide that sum by the count of values for that pump. So if I iterate over 4 rows of the calc_df, and pump 1 has 3 out of the 4 rows with an actual pump flow rate of 100, 120, and 100, the formula will sum these three rows (320) and divide by the number of rows that were related to pump 1 (3). The average flow rate per pump 1 in row 4 would be 106.
 
-Average pump flow rate - to calculate this value I simply add all the actual pump flow rates for both pumps and divide the sum by the count of rows I have iterated over. For example if I have iterated over 4 rows, and 2 of the rows are pump 1 and 2 are pump 2, I'll add up the values from both pumps (100,110,100,120) and divide the sum by 4 to calculate the average pump flow rate in GPM of 107.5.
+Average pump flow rate - to calculate this value I simply add all the actual pump flow rates for both pumps and divide the sum by the count of rows I have iterated over. For example, if I have iterated over 4 rows, and 2 of the rows are pump 1 and 2 are pump 2, I'll add up the values from both pumps (100,110,100,120) and divide the sum by 4 to calculate the average pump flow rate in GPM of 107.5.
