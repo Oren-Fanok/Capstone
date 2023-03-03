@@ -25,13 +25,17 @@ In this section, I will create a new data frame called calc_df, which will hold 
 
 In this section, I will add elevation difference, volume per foot, observed pumping flow rate, the average flow rate per pump, and average observed pumping flow rate (GPM).
 
-Elevation Difference - This value can be changed for the desired lift station. Please note that each lift station will have a different elevation level. To change the elevation for a different lift station, simply change the 2.2 in the first cell below.
+Elevation Difference - This value is unique to each lift station. Using the information in the legend data frame I'll assign each row an elevation difference based on the lift station.
 
-Observed pumping flow rate - To calculate this value we first need to input the wet wells diameter, again this value will differ per each lift station. Simply change the diameter in the diam_well = (5) statement to the desired value. From there the vol_per_foot calculation will update and be added to the calc_df. Now we have all the information in the calc_df to calculate the observed pumping flow rate. I'll take the elevation difference value times the volume per foot value, and divide the result by our time difference. The resulting value will be added to the calc_df in the observed pumping flow rate column.
+Wet well diameter - This value is unique to each lift station. Using the information in the legend data frame I'll assign each row a wet well diameter based on the lift station.
 
-Average flow rate per pump - Average flow rate per pump is calculated by adding the values in the observed pumping flow rate column for each pump and then dividing that sum by the count of values for that pump. So if I iterate over 4 rows of the calc_df, and pump 1 has 3 out of the 4 rows with an observed pumping flow rate of 100, 120, and 100, the formula will sum these three rows (320) and divide by the number of rows that were related to pump 1 (3). The average flow rate per pump 1 in row 4 would be 106.
+Volume per foot - I'll calculate the volume per foot of each lift station by using this calculation, (wet_well_diam^2 * 3.14) / 4 * 7.48.
 
-Average observed pumping flow rate (GPM) - to calculate this value I simply add all the average flow rates for both pumps and divide the sum by the count of rows I have iterated over. For example, if I have iterated over 4 rows, and 2 of the rows are pump 1 and 2 are pump 2, I'll add up the values from both pumps (100,110,100,120) and divide the sum by 4 to calculate the average observed pumping flow rate in GPM of 107.5 in row 4.
+Observed pumping flow rate - To calculate this value we first need to input the wet wells diameter, again this value will differ per each lift station. I'll take the row's elevation difference value times the row's volume per foot value, and divide the result by the row's time difference. The resulting value will be added to the row in the observed pumping flow rate column.
+
+Average flow rate per pump - Average flow rate per pump is calculated by adding the values in the observed pumping flow rate column for each pump # and then dividing that sum by the count of values for that pump. So if I iterate over 4 rows of the calc_df, and pump 1 has 3 out of the 4 rows with an observed pumping flow rate of 100, 120, and 100, the formula will sum these three rows (320) and divide by the number of rows that were related to pump 1 (3). The average flow rate per pump 1 in row 4 would be 106.
+
+Average observed pumping flow rate (GPM) - to calculate this value I simply add all the average flow rates for all pumps per lift station and divide the sum by the count of rows I have iterated over. For example, if I have iterated over 4 rows, and 2 of the rows are pump 1 and 2 are pump 2, I'll add up the values from both pumps (100,110,100,120) and divide the sum by 4 to calculate the average observed pumping flow rate in GPM of 107.5 in row 4.
 
 # Section 4
 
