@@ -19,7 +19,7 @@ In this section, I read my Lift Station SCADA data and Lift Station Legend data 
 
 # Section 2
 
-In this section, I will create a new data frame called calc_df, which will hold all of our calculated data going forward.  I'll begin by filling the new data frame with only timestamps containing pumps turning on or off (Val column 1 for on and 0 for off). From there I will convert both on and off timestamps into Unix time and calculate the difference in time between the pump turning on and off. Remove the # in front of any of the calc_df lines to see a preview of the data frame.
+In this section, I will create a new data frame called calc_df, which will hold all of our calculated data going forward. I'll begin by assigning the original df to my calculated df, and reformatting the columns (names and order). Next I will remove any erroneous rows containing invalid pump numbers. Then I'll use the legend dataframe I read into the program earlier to add the correct lift station name to each row in calc_df. Finally, I will convert both on and off timestamps into Unix time and calculate the difference in time between the pump turning on and off.
 
 # Section 3
 
