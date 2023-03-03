@@ -15,7 +15,7 @@ In the links above you will find the model, the function, and the sample output.
 
 # Section 1
 
-In this section, I read our sewer SCADA data to a pandas data frame and do some quick formatting. I'll begin by converting the date and time column to DateTime format, removing unneeded columns, and dropping any NA values. Finally, I will remove erroneous 0's. This data contains 1's and 0's in the value column. 1 signals a pump turning on while 0 signals a pump turning off. The relationship needs to be 1:1, however, SCADA inputs erroneous zero's into the output every 15 minutes, so I will remove them. Once this process is finished we are ready to begin section 2.
+In this section, I read my Lift Station SCADA data and Lift Station Legend data to a pandas data frames and do some quick formatting. I'll begin by converting the date and time column to DateTime format, dropping unneeded columns, and dropping any rows that are missing pump start or stop timestamps. Once this process is finished we are ready to begin section 2.
 
 # Section 2
 
