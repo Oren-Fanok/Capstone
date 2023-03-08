@@ -56,3 +56,7 @@ Actual pump flow rate - To calculate the actual pump flow rate for each row in c
 Average flow rate per pump - To calculate the average flow rate per pump for each lift station, I add the values in the actual pump flow rate column for each pump, and then divide that sum by the count of values for that pump. So if I iterate over 4 rows of the calc_df, and pump 1 has 3 out of the 4 rows with an actual pump flow rate of 100, 120, and 100, the formula will sum these three rows (320) and divide by the number of rows that were related to pump 1 (3). The average flow rate per pump 1 in row 4 would be 106.
 
 Average pump flow rate - to calculate this value I simply add all the actual pump flow rates for all pumps within an individual lift station and divide the sum by the count of rows I have iterated over. For example, if I have iterated over 4 rows, and 2 of the rows are pump 1 and 2 are pump 2, I'll add up the values from both pumps (100,110,100,120) and divide the sum by 4 to calculate the average pump flow rate in GPM of 107.5.
+
+# Creating a dashboard to visualize the model via PowerBI
+
+![image](https://user-images.githubusercontent.com/112598531/223790178-bcbf0d9c-9514-4c22-bc81-d875f2a7eafd.png)
