@@ -59,6 +59,7 @@ Average pump flow rate - to calculate this value I simply add all the actual pum
 
 # Creating a dashboard to visualize the model via PowerBI
 
-<img width="1029" alt="image" src="https://user-images.githubusercontent.com/112598531/224856289-bf94a145-ec21-4f00-9f26-2bb9189a1feb.png">
+<img width="1029" alt="image" src="https://user-images.githubusercontent.com/112598531/224856405-9f03e0d6-ae7a-42b5-8eca-c1053cd396e7.png">
+
 
 
